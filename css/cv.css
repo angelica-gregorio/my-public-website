@@ -1,0 +1,180 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  font-family: "Montserrat", sans-serif;
+}
+
+body {
+  background: #f4f4f4;
+  color: #333;
+  line-height: 1.6;
+  font-size: 14px; /* Optimal reading size */
+}
+
+.resume {
+  width: 850px; /* Standard A4 width ratio */
+  background: #fff;
+  margin: 40px auto;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- Top Header Section --- */
+.header {
+  background: #115740; /* DLSU Green */
+  color: #fff;
+  padding: 30px 40px;
+  text-align: center;
+}
+
+.header h1 {
+  font-size: 32px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 5px;
+}
+
+.header .subtitle {
+  font-size: 16px;
+  font-weight: 500;
+  color: #e0e0e0;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+
+.header .contact-info {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  font-size: 13px;
+}
+
+.header .contact-info div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.header .contact-info i {
+  color: #fff;
+}
+
+/* --- Main Content Layout --- */
+.main-content {
+  display: flex;
+  padding: 30px 40px;
+  gap: 30px;
+}
+
+/* Left Column (Narrower) */
+.left-col {
+  width: 35%;
+  border-right: 1px solid #eee;
+  padding-right: 20px;
+}
+
+/* Right Column (Wider) */
+.right-col {
+  width: 65%;
+}
+
+/* --- Section Styling --- */
+.section-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #115740; /* DLSU Green Headers */
+  text-transform: uppercase;
+  border-bottom: 2px solid #115740;
+  padding-bottom: 5px;
+  margin-bottom: 20px;
+  margin-top: 10px; /* Spacing between sections */
+}
+
+.section-title:first-child {
+  margin-top: 0;
+}
+
+/* --- List Items & Content --- */
+.entry {
+  margin-bottom: 15px;
+}
+
+.entry-title {
+  font-weight: 700;
+  font-size: 14px;
+  color: #222;
+}
+
+.entry-subtitle {
+  font-weight: 600;
+  font-size: 13px;
+  color: #555;
+  font-style: italic;
+  margin-bottom: 2px;
+}
+
+.entry-date {
+  font-size: 12px;
+  color: #777;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.entry-desc {
+  font-size: 13px;
+  color: #444;
+  text-align: justify;
+}
+
+/* --- Skills Tags --- */
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.skill-tag {
+  background: #f0f0f0;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #115740;
+}
+
+/* --- Awards List --- */
+.awards-list li {
+  margin-bottom: 12px;
+  font-size: 13px;
+  display: flex;
+  gap: 10px;
+}
+
+.awards-list li i {
+  color: #d4af37; /* Gold color for trophies/medals */
+  margin-top: 4px;
+}
+
+/* --- Research List --- */
+.research-list li {
+  margin-bottom: 15px;
+}
+
+.research-title {
+  font-weight: 700;
+  display: block;
+  color: #333;
+}
+
+.research-authors {
+  font-size: 12px;
+  color: #666;
+  display: block;
+}

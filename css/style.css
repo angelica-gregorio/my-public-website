@@ -1,0 +1,837 @@
+/* ===========================
+   FONTS & COLOR PALETTE
+   =========================== */
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;600&display=swap');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+:root {
+    --bg-body: #fafafa;
+    --bg-card: #ffffff;
+    --text-main: #383a42;
+    --text-comment: #a0a1a7;
+    --accent-blue: #4078f2;
+    --accent-purple: #a626a4;
+    --accent-green: #50a14f;
+    --accent-orange: #c18401;
+    --border: #e0e0e0;
+}
+
+/* ===========================
+   GLOBAL RESET & BASE STYLES
+   =========================== */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Fira Code', 'Courier New', monospace;
+    margin: 0;
+    padding: 0;
+    padding-top: 60px;
+    background-color: var(--bg-body);
+    color: var(--text-main);
+    overflow-x: hidden;
+}
+
+body.main-scroller {
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+/* ===========================
+   NAVBAR (FIXED & ALIGNED)
+   =========================== */
+.menu-body {
+    background-color: var(--bg-card); /* White background */
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+    /* CRITICAL: Height must be small, not 100vh */
+    height: 60px; 
+    
+    /* CRITICAL: Fixes it to the top of the screen */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Ensures it sits ON TOP of your profile image */
+    
+    border-bottom: 1px solid var(--border);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--accent-purple);
+    text-decoration: none;
+}
+
+.logo span {
+    color: var(--accent-blue);
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-main);
+    font-size: 0.9rem;
+    position: relative;
+    transition: 0.3s;
+    font-weight: 500;
+}
+
+.nav-links a:hover {
+    color: var(--accent-blue);
+    background-color: #f0f0f0;
+    border-radius: 4px;
+    padding: 2px 5px;
+}
+
+/* ===========================
+   HERO SECTION
+   =========================== */
+.hero-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: auto;
+    padding: 20px 5%;
+    gap: 40px;
+    flex-wrap: wrap;
+    background-image: linear-gradient(#e5e5e5 1px, transparent 1px),
+        linear-gradient(90deg, #e5e5e5 1px, transparent 1px);
+    background-size: 40px 40px;
+    background-position: center center;
+}
+
+.hero-text {
+    flex: 1;
+    min-width: 300px;
+    z-index: 2;
+}
+
+.hero-subtitle {
+    font-size: 1rem;
+    color: var(--text-comment);
+    margin-bottom: 10px;
+    display: block;
+    font-style: italic;
+}
+
+.hero-title {
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 1.1;
+    margin: 0;
+    color: var(--text-main);
+}
+
+.hero-title span {
+    color: var(--accent-purple);
+}
+
+.hero-desc {
+    color: var(--text-main);
+    margin-top: 20px;
+    font-size: 0.95rem;
+    max-width: 500px;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 15px;
+    border-left: 3px solid var(--accent-green);
+}
+
+/* ===========================
+   BUTTONS
+   =========================== */
+.btn-black {
+    background-color: var(--bg-card);
+    color: var(--accent-blue);
+    padding: 12px 30px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    display: inline-block;
+    margin-top: 30px;
+    border: 2px solid var(--accent-blue);
+    transition: 0.2s;
+    border-radius: 4px;
+    background-color: var(--bg-card);
+    color: var(--accent-blue);
+    padding: 12px 30px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    display: inline-block;
+    margin-top: 30px;
+    border: 2px solid var(--accent-blue);
+    transition: 0.2s;
+    border-radius: 4px;
+}
+
+.btn-black:hover {
+    background-color: var(--accent-blue);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(64, 120, 242, 0.3);
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: var(--text-main);
+    padding: 12px 30px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    display: inline-block;
+    margin-top: 30px;
+    margin-left: 15px;
+    border: 2px solid var(--text-main);
+    border-radius: 4px;
+    transition: 0.2s;
+}
+
+.btn-outline:hover {
+    border-color: var(--accent-purple);
+    color: var(--accent-purple);
+    background: rgba(166, 38, 164, 0.05);
+}
+
+/* ===========================
+   HERO IMAGE & BLOB
+   =========================== */
+.hero-image-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+
+.violet-blob,
+.yellow-blob {
+    position: absolute;
+    width: 450px;
+    height: 450px;
+    border: 2px dashed var(--accent-purple);
+    border-radius: 50%;
+    animation: spin 20s linear infinite;
+    z-index: 1;
+    background: transparent;
+}
+
+@keyframes spin {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.profile-img {
+    width: 400px;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 2px solid var(--accent-blue);
+    background: #fff;
+    position: relative;
+    z-index: 10;
+    box-shadow: 20px 20px 0px rgba(0, 0, 0, 0.1);
+}
+
+/* ===========================
+   SOCIAL ICONS
+   =========================== */
+.social-links {
+    margin-top: 30px;
+    display: flex;
+    gap: 20px;
+}
+
+.social-links i {
+    font-size: 1.5rem;
+    color: var(--text-main);
+    transition: 0.3s;
+}
+
+.social-links i:hover {
+    color: var(--accent-blue);
+    transform: scale(1.1);
+}
+
+/* ===========================
+   SERVICES GRID
+   =========================== */
+.services-section {
+    padding: 60px 10%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    background-color: var(--bg-body);
+}
+
+.service-item {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--accent-orange);
+    padding: 25px;
+    transition: 0.3s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.service-item:hover {
+    transform: translateY(-5px);
+    border-top-color: var(--accent-blue);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.icon-box i {
+    font-size: 2.5rem;
+    color: var(--accent-blue);
+    margin-bottom: 15px;
+}
+
+.service-item h3 {
+    color: var(--text-main);
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.service-item p {
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* ===========================
+   FORMS & PAGE WRAPPER
+   =========================== */
+.page-wrapper {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+h1.page-title {
+    font-size: 2.5rem;
+    border-left: 0;
+    color: var(--accent-purple);
+}
+
+h1.page-title::before {
+    content: 'class ';
+    color: var(--accent-blue);
+    font-size: 0.6em;
+    vertical-align: middle;
+}
+
+input,
+textarea {
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    color: var(--text-main);
+    font-family: 'Fira Code', monospace;
+    padding: 15px;
+    margin-bottom: 15px;
+    width: 100%;
+    transition: 0.3s;
+}
+
+input:focus,
+textarea:focus {
+    border-color: var(--accent-blue);
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(64, 120, 242, 0.1);
+}
+
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .btn-outline {
+        margin-left: 0;
+        display: block;
+        margin-top: 15px;
+    }
+
+    .profile-img {
+        width: 300px;
+        height: 375px;
+    }
+
+    .yellow-blob {
+        width: 340px;
+        height: 340px;
+    }
+
+    .section-heading {
+        font-size: 3rem;
+    }
+
+    .project-item {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .project-title {
+        font-size: 1.5rem;
+    }
+}
+
+.works-section {
+    padding: 100px 0;
+    min-height: 80vh;
+}
+
+.section-heading {
+    font-size: 4rem;
+    font-weight: 900;
+    margin-bottom: 60px;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+}
+
+.projects-list {
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+}
+
+/* Project Item Layout */
+.project-item {
+    display: grid;
+    /* Desktop layout: Image on left, text on right */
+    grid-template-columns: 1.5fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+/* Project Image Styling */
+.project-image-container {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    /* Soft modern shadow */
+    background-color: #e0e0e0;
+    /* Placeholder color while image loads */
+}
+
+.project-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+/* Subtle zoom effect on hover */
+.project-image-container:hover .project-img {
+    transform: scale(1.03);
+}
+
+/* Project Text Content */
+.project-content {
+    position: relative;
+}
+
+.project-number {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--accent-orange);
+    display: block;
+    margin-bottom: 15px;
+}
+
+.project-title {
+    font-size: 1.8rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 30px;
+}
+
+/* Project Metadata (Stack & Devs) */
+.meta-block {
+    margin-bottom: 25px;
+}
+
+.meta-block h4 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-comment);
+    margin-bottom: 12px;
+    font-weight: 700;
+}
+
+/* Tech Stack Tags */
+.tech-tags {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.tech-tags li {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.developer-list {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text-main);
+}
+
+/* ===========================
+   FORMS & PAGE WRAPPER
+   =========================== */
+.page-wrapper {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+h1.page-title {
+    font-size: 2.5rem;
+    border-left: 0;
+    color: var(--accent-purple);
+}
+
+h1.page-title::before {
+    content: 'class ';
+    color: var(--accent-blue);
+    font-size: 0.6em;
+    vertical-align: middle;
+}
+
+input,
+textarea {
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    color: var(--text-main);
+    font-family: 'Fira Code', monospace;
+    padding: 15px;
+    margin-bottom: 15px;
+    width: 100%;
+    transition: 0.3s;
+}
+
+input:focus,
+textarea:focus {
+    border-color: var(--accent-blue);
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(64, 120, 242, 0.1);
+}
+
+/* ===========================
+   ABOUT SECTION
+   =========================== */
+.about-section {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+    margin-bottom: 60px;
+    background-color: var(--bg-card);
+    padding: 40px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+}
+
+.about-image {
+    flex-shrink: 0;
+}
+
+.about-image img {
+    width: 300px;
+    height: auto;
+    border-radius: 10px;
+    border: 2px solid var(--accent-blue);
+    box-shadow: 10px 10px 0px rgba(0, 0, 0, 0.05);
+}
+
+.about-text h1.page-title {
+    margin-top: 0;
+    font-size: 2rem;
+}
+
+.about-text p {
+    font-size: 1rem;
+    color: var(--text-main);
+    margin-bottom: 15px;
+}
+
+.about-text strong {
+    color: var(--accent-purple);
+}
+
+/* ===========================
+   EDUCATION & AWARDS
+   =========================== */
+.relative-item {
+    position: relative;
+}
+
+.date-badge {
+    background-color: rgba(229, 192, 123, 0.15);
+    color: var(--accent-orange);
+    font-size: 0.75rem;
+    padding: 4px 10px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    display: inline-block;
+    border-radius: 4px;
+    border: 1px solid var(--accent-orange);
+    font-family: 'Fira Code', monospace;
+}
+
+.highlight-text {
+    color: var(--text-main);
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.course-list {
+    padding-left: 20px;
+    color: var(--text-comment);
+    font-size: 0.9rem;
+    line-height: 1.8;
+}
+
+.course-list li {
+    margin-bottom: 5px;
+}
+
+.award-item {
+    margin-bottom: 20px;
+    border-left: 2px solid var(--border);
+    padding-left: 10px;
+}
+
+.award-item p {
+    margin: 0 0 5px 0;
+    color: var(--text-main);
+}
+
+.award-meta {
+    font-size: 0.85rem;
+    color: var(--text-comment);
+    font-style: italic;
+    display: block;
+}
+
+/* ===========================
+   EXPERIENCE TIMELINE
+   =========================== */
+.timeline-container {
+    position: relative;
+    padding-left: 50px;
+    max-width: 800px;
+}
+
+.timeline-container::before {
+    content: '';
+    position: absolute;
+    left: 15px;
+    top: 10px;
+    bottom: 0;
+    width: 2px;
+    background: var(--border);
+    z-index: 0;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 45px;
+}
+
+.timeline-marker {
+    position: absolute;
+    left: -42px;
+    top: 20px;
+    width: 16px;
+    height: 16px;
+    background-color: var(--bg-body);
+    border: 4px solid var(--accent-blue);
+    border-radius: 50%;
+    z-index: 1;
+    box-shadow: 0 0 0 5px var(--bg-body);
+    transition: 0.3s;
+}
+
+.timeline-item.present .timeline-marker {
+    border-color: var(--accent-green);
+    background-color: var(--accent-green);
+}
+
+.timeline-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border);
+    padding: 25px;
+    border-radius: 6px;
+    position: relative;
+    transition: 0.3s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.02);
+}
+
+.timeline-card:hover {
+    transform: translateX(5px);
+    border-color: var(--accent-blue);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.timeline-card::after {
+    content: '';
+    position: absolute;
+    left: -8px;
+    top: 24px;
+    width: 15px;
+    height: 15px;
+    background-color: var(--bg-card);
+    border-left: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    transform: rotate(45deg);
+    transition: border-color 0.3s;
+}
+
+.timeline-card:hover::after {
+    border-left-color: var(--accent-blue);
+    border-bottom-color: var(--accent-blue);
+}
+
+.timeline-date {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.8rem;
+    color: var(--accent-purple);
+    margin-bottom: 8px;
+    display: inline-block;
+    background: rgba(166, 38, 164, 0.05);
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-weight: 600;
+}
+
+.timeline-date.past-date {
+    color: var(--text-comment);
+    background: #f0f0f0;
+}
+
+.timeline-org {
+    font-size: 1.2rem;
+    color: var(--text-main);
+    margin: 0;
+    font-weight: 600;
+}
+
+.timeline-role {
+    color: var(--text-comment);
+    font-size: 1rem;
+    margin-bottom: 15px;
+    font-style: italic;
+}
+
+.timeline-desc {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--text-main);
+}
+
+.timeline-desc i {
+    color: var(--accent-blue);
+    margin-right: 5px;
+    width: 20px;
+    text-align: center;
+}
+
+.timeline-desc i.muted-icon {
+    color: var(--text-comment);
+}
+
+.timeline-list {
+    margin: 0;
+    padding-left: 20px;
+    color: var(--text-main);
+}
+
+.timeline-list li {
+    margin-bottom: 5px;
+}
+
+/* ===========================
+   IFRAME & MAIN LAYOUT
+   =========================== */
+iframe {
+    border: none;
+    display: block;
+    width: 100%;
+    overflow: hidden;
+}
+
+iframe.sticky-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    z-index: 9999;
+    background-color: var(--bg-card);
+    border-bottom: 1px solid var(--border);
+}
+
+.content-frame {
+    width: 100%;
+    display: block;
+}
+
+/* ===========================
+   CONTENT SECTIONS
+   =========================== */
+.content-box {
+    width: 100%;
+    display: block;
+}
+
+/* ===========================
+   CONTACT SECTION
+   =========================== */
+.contact-section {
+    padding: 80px 10%;
+    background: var(--bg-card);
+    border-top: 1px solid var(--border);
+    margin-top: 0;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.contact-subtitle {
+    color: var(--accent-purple);
+    font-family: 'Fira Code', monospace;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 1.2rem;
+}
+
+.contact-form {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.btn-block {
+    width: 100%;
+    cursor: pointer;
+    text-align: center;
+}
