@@ -10,51 +10,56 @@
 
 <body class="main-scroller">
 
-<body class="main-scroller">
-
-    <div class="menu-body">
-        <a href="#" class="logo">&lt;Angelica <span>Gregorio</span> /&gt;</a>
+    <nav class="menu-body">
         
+        <a href="#home" class="logo">&lt;Angelica <span>Gregorio</span> /&gt;</a>
+
+        <div class="sidebar-status">
+            <span id="greeting-display" class="status-greeting">// Loading...</span>
+            <span id="clock-display" class="status-clock">00:00:00</span>
+        </div>
+
         <ul class="nav-links">
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#works">Works</a></li>
             <li><a href="#experience">Experience</a></li>
             <li><a href="#education">Education</a></li>
-            <li><a href="#references">References</a></li>
+            <li><a href="#contact-section">Contact</a></li>
         </ul>
-    </div>
+    </nav>
 
-    <div id="home-content"></div>
+    <main class="content-area">
 
-    <div id="about-content"></div>
+        <div id="home-content"></div>
+        <div id="about-content"></div>
+        <div id="works-content"></div>
+        <div id="experience-content"></div>
+        <div id="education-content"></div>
+        <div id="references-content"></div>
 
-    <div id="works-content"></div>
+        <div id="contact-section" class="contact-section">
+            <div class="page-wrapper">
+                <h1 id="connect-header" class="title">
+                    <span class="keyword">class</span> Let's Connect
+                </h1>
+                <h3 class="contact-subtitle">
+                    > Input_Message:
+                </h3>
 
-    <div id="experience-content"></div>
+                <form id="personalForm" class="contact-form">
+                    <input type="text" id="userName" name="Name" placeholder="String name = '...'" required />
+                    <input type="email" id="userEmail" name="Email" placeholder="String email = '...'" required />
+                    <textarea id="userMsg" name="Message" rows="4" placeholder="// Write your message here..." required></textarea>
 
-    <div id="education-content"></div>
-
-    <div id="references-content"></div>
-
-    <div id="contact-section" class="contact-section">
-        <div class="page-wrapper">
-            <h1 class="page-title text-center">Let's Connect</h1>
-            <h3 class="contact-subtitle">
-                > Input_Message:
-            </h3>
-            
-            <form action="mailto:angelica_g_gregorio@dlsu.edu.ph" method="post" enctype="text/plain" class="contact-form">
-                <input type="text" name="Name" placeholder="String name = '...'" required />
-                <input type="email" name="Email" placeholder="String email = '...'" required />
-                <textarea name="Message" rows="4" placeholder="// Write your message here..." required></textarea>
-                
-                <button class="btn-black btn-block">
-                    SUBMIT();
-                </button>
-            </form>
+                    <button type="submit" class="btn-black btn-block">
+                        SUBMIT();
+                    </button>
+                </form>
+            </div>
         </div>
-    </div>
+
+    </main>
 
     <script src="js/app.js"></script>
 </body>

@@ -835,3 +835,62 @@ iframe.sticky-menu {
     cursor: pointer;
     text-align: center;
 }
+
+.clock-style {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #000;
+    background: #f0f0f0;
+    padding: 15px;
+    border-radius: 10px;
+    border: 2px solid #333;
+    box-shadow: 4px 4px 0px #333;
+    
+    display: block;           /* Allows margin auto to work */
+    width: fit-content;       /* Ensures the box shrinks to fit the text */
+    margin-left: auto;        /* Pushes from the left */
+    margin-right: auto;       /* Pushes from the right */
+    margin-bottom: 20px;      /* Keeps your bottom spacing */
+}
+
+#connect-header{
+   font-size: 2.5rem;
+    border-left: 0;
+    color: var(--accent-purple);
+}
+
+
+/* --- Sidebar Status Styling --- */
+
+.sidebar-status {
+    /* This matches the typical padding of sidebar logos/links */
+    padding-left: 50px; 
+    margin-bottom: 30px; /* Space between clock and menu links */
+    margin-top: 10px;    /* Space between logo and clock */
+    display: flex;
+    flex-direction: column;
+}
+
+.status-greeting {
+    font-size: 12px;
+    color: #888;          /* Grey text for the comment style */
+    font-family: monospace;
+    letter-spacing: 1px;
+    margin-bottom: 5px;   /* Small gap between greeting and clock */
+}
+
+.status-clock {
+    font-size: 24px;      /* Make the time big and visible */
+    font-weight: 700;     /* Bold */
+    color: #000;          /* Dark black for contrast */
+    font-family: sans-serif; /* Clean font */
+    letter-spacing: -1px;
+}
+
+/* Responsive Fix: If screen is small, hide the clock or adjust padding */
+@media screen and (max-width: 768px) {
+    .sidebar-status {
+        padding-left: 20px;
+        display: none; /* Optional: hide on mobile if space is tight */
+    }
+}
