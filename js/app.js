@@ -78,29 +78,23 @@ function initializeExperience() {
 }
 
 // --- 4. Form Handling (VALIDATION & SPAM FILTER) ---
-// This replaces the old handleFormSubmission function
 function setupFormValidation() {
     const form = document.getElementById("personalForm");
-    
-    // If form doesn't exist (e.g., on a page without it), stop here
     if (!form) return;
 
     const emailField = document.querySelector("input[name='email']");
     const messageField = document.querySelector("textarea[name='message']");
     const spamWords = ["free money", "buy now", "click here", "subscribe", "promo"];
     
-    // Record when the function runs (Page Load)
     const formLoadTime = Date.now();
 
     form.addEventListener("submit", function (e) {
-        // A. Email Validation
         if (emailField && !emailField.value.includes("@")) {
             e.preventDefault(); 
             alert("Enter a valid email");
             return;
         }
 
-        // B. Time-based Spam Filter (Must take > 2 seconds)
         const submitTime = Date.now();
         const secondsTaken = (submitTime - formLoadTime) / 1000;
         
@@ -110,7 +104,6 @@ function setupFormValidation() {
             return;
         }
 
-        // C. Keyword Spam Filter
         if (messageField) {
             const message = messageField.value.toLowerCase();
             const containsSpam = spamWords.some(word => message.includes(word));
@@ -122,9 +115,6 @@ function setupFormValidation() {
             }
         }
 
-        // D. Success
-        // If we get here, we do NOTHING.
-        // We let the browser proceed with action="https://formsubmit.co/..."
         console.log("Validation passed. Sending to FormSubmit...");
     });
 }
@@ -142,8 +132,11 @@ window.addEventListener('load', async function () {
     // 3. Setup features that depend on content existing
     setupSmoothScroll();
     
-    // 4. Initialize the Form Logic (Now part of the master flow)
+    // 4. Initialize the Form Logic
     setupFormValidation();
-    
+
+    // 5. Initialize bounce canvas after works.html is in the DOM
+    initBounceCanvas();
+
     console.log("App Fully Initialized");
 });

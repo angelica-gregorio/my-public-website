@@ -895,3 +895,10 @@ iframe.sticky-menu {
         @media screen and (max-width: 768px) {
             .sidebar-status { display: none; }
         }
+
+
+        #bounceCanvas {
+    display: block; /* Removes the bottom whitespace common with inline elements */
+    width: 100%;
+    height: 100%;
+}
