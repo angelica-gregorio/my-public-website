@@ -859,38 +859,39 @@ iframe.sticky-menu {
     color: var(--accent-purple);
 }
 
+   .sidebar-status {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
 
-/* --- Sidebar Status Styling --- */
+        .status-greeting {
+            font-size: 0.75rem;
+            color: #a0a1a7;
+            margin-bottom: 2px;
+            text-transform: uppercase;
+            font-weight: 600;
+            font-family: 'Fira Code', monospace;
+            display: block;
+        }
 
-.sidebar-status {
-    /* This matches the typical padding of sidebar logos/links */
-    padding-left: 50px; 
-    margin-bottom: 30px; /* Space between clock and menu links */
-    margin-top: 10px;    /* Space between logo and clock */
-    display: flex;
-    flex-direction: column;
-}
+        .status-clock {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #383a42;
+            line-height: 1;
+            font-family: 'Fira Code', monospace;
+            display: block;
+        }
 
-.status-greeting {
-    font-size: 12px;
-    color: #888;          /* Grey text for the comment style */
-    font-family: monospace;
-    letter-spacing: 1px;
-    margin-bottom: 5px;   /* Small gap between greeting and clock */
-}
-
-.status-clock {
-    font-size: 24px;      /* Make the time big and visible */
-    font-weight: 700;     /* Bold */
-    color: #000;          /* Dark black for contrast */
-    font-family: sans-serif; /* Clean font */
-    letter-spacing: -1px;
-}
-
-/* Responsive Fix: If screen is small, hide the clock or adjust padding */
-@media screen and (max-width: 768px) {
-    .sidebar-status {
-        padding-left: 20px;
-        display: none; /* Optional: hide on mobile if space is tight */
-    }
-}
+        @media screen and (max-width: 768px) {
+            .sidebar-status { display: none; }
+        }
