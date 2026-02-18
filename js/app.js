@@ -136,3 +136,48 @@ window.addEventListener('load', async function () {
     
     console.log("App Fully Initialized");
 });
+
+
+// 1. Time-based Filtering: Record when the page/form loads [cite: 58]
+const formLoadTime = Date.now();
+
+// Select the form and inputs
+const form = document.getElementById("personalForm");
+const emailField = document.getElementById("userEmail");
+const messageField = document.getElementById("userMsg");
+
+// Spam Keywords List [cite: 74]
+const spamWords = ["free money", "buy now", "click here", "subscribe", "promo"];
+
+form.addEventListener("submit", function (e) {
+    // 2. Client-Side Validation: Ensure email contains '@' [cite: 30]
+    if (!emailField.value.includes("@")) {
+        e.preventDefault();
+        alert("Enter a valid email address.");
+        return;
+    }
+
+    // 3. Spam Filter 1: Time-based Check [cite: 60]
+    // Blocks submissions that happen faster than 2 seconds
+    const submitTime = Date.now();
+    const secondsTaken = (submitTime - formLoadTime) / 1000;
+    
+    if (secondsTaken < 2) {
+        e.preventDefault();
+        alert("Submission was too fast. Please try again."); // [cite: 68]
+        return;
+    }
+
+    // 4. Spam Filter 2: Keyword Detection [cite: 75]
+    // Blocks messages containing spam words
+    const message = messageField.value.toLowerCase();
+    const containsSpam = spamWords.some(word => message.includes(word));
+
+    if (containsSpam) {
+        e.preventDefault();
+        alert("Your message contains blocked spam keywords."); // [cite: 83]
+        return;
+    }
+
+    // If all checks pass, the form submits to FormSubmit
+});
